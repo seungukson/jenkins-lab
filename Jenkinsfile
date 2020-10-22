@@ -22,9 +22,9 @@ pipeline {
                 echo "Lets start Long Journey! ENV: ${ENV}"
                 echo 'Clonning Repository'
 
-                git url: 'https://github.com/frontalnh/temp.git',
+                git url: 'https://github.com/seungukson/jenkins-lab.git',
                     branch: 'master',
-                    credentialsId: 'jenkinsgit'
+                    credentialsId: 'jenkins'
             }
 
             post {
