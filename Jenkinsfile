@@ -3,7 +3,7 @@ pipeline {
     agent any
 
     triggers {
-        pollSCM('*/3 * * * *')
+        pollSCM('* * * * *')
     }
 
     environment {
@@ -52,18 +52,10 @@ pipeline {
               // failed, record the test results and archive the jar file.
               success {
                   echo 'Successfully Cloned Repository'
-
-                  mail  to: 'seunguksondev@gmail.com',
-                        subject: "Deploy Frontend Success",
-                        body: "Successfully deployed frontend!"
                   
               }
               failure {
                   echo 'I failed :('
-
-                  mail  to: 'seunguksondev@gmail.com',
-                        subject: "Failed Pipelinee",
-                        body: "Something is wrong with deploy frontend"
               }
           }
         }
@@ -137,12 +129,6 @@ pipeline {
           }
 
           post {
-            success {
-              mail  to: 'seunguksondev@gmail.com',
-                    subject: "Deploy Success",
-                    body: "Successfully deployed!"
-                  
-            }
           }
         }
     }
